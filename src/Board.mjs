@@ -26,10 +26,14 @@ export class Board {
     return this
   }
   tick() {
+    const newMoving = Array()
     this.moving.forEach((coord) => {
+      if (coord[0] > this.height) return
       const block = this.board[coord[0]][coord[1]]
       this.board[coord[0]][coord[1]] = "."
-      this.board[coord[0]+1][coord[1]] = block})
+      this.board[coord[0]+1][coord[1]] = block
+      newMoving.push([coord[0]+1, coord[1]])})
+    this.moving = newMoving
     return this
   }
   hasFalling() {
