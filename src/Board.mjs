@@ -28,7 +28,7 @@ export class Board {
   tick() {
     const newMoving = Array()
     this.moving.forEach((coord) => {
-      if (coord[0] > this.height) return
+      if (coord[0] >= this.height-1) return
       const block = this.board[coord[0]][coord[1]]
       this.board[coord[0]][coord[1]] = "."
       this.board[coord[0]+1][coord[1]] = block
