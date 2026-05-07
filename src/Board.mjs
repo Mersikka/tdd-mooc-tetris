@@ -2,6 +2,7 @@ export class Board {
   width;
   height;
   board;
+  moving;
 
   constructor(width, height) {
     this.width = width;
@@ -9,6 +10,7 @@ export class Board {
     this.board = Array.from(
       { length: this.height },
       () => Array(this.width).fill("."));
+    this.moving = Array()
   }
 
   toString() {
@@ -17,6 +19,14 @@ export class Board {
 
   drop(block) {
     this.board[0][Math.floor(this.width / 2)] = block
+    this.moving.push([0, Math.floor(this.width / 2)])
+    return this
+  }
+  tick() {
+    this.moving.forEach((coord) => {
+      const block = this.board[coord[0]][coord[1]]
+      this.board[coord[0]][coord[1]] = "."
+      this.board[coord[0]+1][coord[1]] = block})
     return this
   }
 }
