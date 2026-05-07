@@ -18,6 +18,9 @@ export class Board {
   }
 
   drop(block) {
+    if (this.hasFalling()) {
+      throw "already falling"
+    }
     this.board[0][Math.floor(this.width / 2)] = block
     this.moving.push([0, Math.floor(this.width / 2)])
     return this
@@ -28,5 +31,8 @@ export class Board {
       this.board[coord[0]][coord[1]] = "."
       this.board[coord[0]+1][coord[1]] = block})
     return this
+  }
+  hasFalling() {
+    return this.moving.length > 0
   }
 }
