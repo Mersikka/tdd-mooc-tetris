@@ -8,6 +8,6 @@ export class Board {
   }
 
   toString() {
-    return "TODO";
+    return Array(this.height).fill(Array(this.width).fill(".")).map( (x) => x.join("") ).join("\n") + "\n"
   }
 }
