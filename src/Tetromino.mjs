@@ -22,7 +22,8 @@ export class Tetromino {
   rotateRight() {
     switch (this.name) {
       case 'T':
-        return this.shape.rotateRight()
+        const newShape = this.shape.rotateRight()
+        return new Tetromino(newShape.toString(), 'T', 0)
       case 'I':
         if (this.orientation === 0) {
           const newShape = this.shape.rotateRight()
