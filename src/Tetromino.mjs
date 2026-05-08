@@ -20,7 +20,11 @@ export class Tetromino {
   }
 
   rotateRight() {
-    return this.shape.rotateRight()
+    switch (this.name) {
+      case 'T':
+        const newShape = this.shape.rotateRight()
+        return newShape
+    }
   }
 
   rotateLeft() {
