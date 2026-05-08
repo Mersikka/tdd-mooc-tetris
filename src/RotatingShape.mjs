@@ -16,5 +16,6 @@ export class RotatingShape {
         newBoard[j][this.shape.length - i - 1] = cell
       })
     })
-    return newBoard.map((line) => line.join('')).join('\n') + '\n'}
+    return RotatingShape.fromString(newBoard.map((line) => line.join('')).join('\n'))
+  }
 }
