@@ -7,10 +7,13 @@ export class Tetromino {
     this.tetromino = RotatingShape.fromString(tetrominoShape)
   }
 
+  static T_SHAPE = new Tetromino('.T.\nTTT\n...')
+
   toString() {
     return this.tetromino.toString()
   }
 
-  static T_SHAPE = new Tetromino('.T.\nTTT\n...')
-
+  rotateRight() {
+    return this.tetromino.rotateRight()
+  }
 };
