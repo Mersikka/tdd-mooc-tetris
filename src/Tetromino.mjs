@@ -1,10 +1,10 @@
 import { RotatingShape } from '../src/RotatingShape.mjs';
 
 export class Tetromino {
-  tetromino;
+  tetrominoShape;
 
-  constructor(tetrominoShape) {
-    this.tetromino = RotatingShape.fromString(tetrominoShape)
+  constructor(shapeStr) {
+    this.tetrominoShape = RotatingShape.fromString(shapeStr)
   }
 
   static T_SHAPE = new Tetromino('.T.\nTTT\n...')
@@ -12,14 +12,14 @@ export class Tetromino {
   static I_SHAPE = new Tetromino('.....\n.....\nIIII.\n.....\n.....')
 
   toString() {
-    return this.tetromino.toString()
+    return this.tetrominoShape.toString()
   }
 
   rotateRight() {
-    return this.tetromino.rotateRight()
+    return this.tetrominoShape.rotateRight()
   }
 
   rotateLeft() {
-    return this.tetromino.rotateLeft()
+    return this.tetrominoShape.rotateLeft()
   }
 };
