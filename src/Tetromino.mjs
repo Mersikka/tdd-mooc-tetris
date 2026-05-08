@@ -5,15 +5,15 @@ export class Tetromino {
   name;
   orientation;
 
-  constructor(shapeStr, name) {
+  constructor(shapeStr, name, orientation) {
     this.shape = RotatingShape.fromString(shapeStr)
     this.name = name
-    this.orientation = 0
+    this.orientation = orientation
   }
 
-  static T_SHAPE = new Tetromino('.T.\nTTT\n...', 'T')
+  static T_SHAPE = new Tetromino('.T.\nTTT\n...', 'T', 0)
 
-  static I_SHAPE = new Tetromino('.....\n.....\nIIII.\n.....\n.....', 'I')
+  static I_SHAPE = new Tetromino('.....\n.....\nIIII.\n.....\n.....', 'I', 0)
 
   toString() {
     return this.shape.toString()
@@ -25,11 +25,11 @@ export class Tetromino {
         return this.shape.rotateRight()
       case 'I':
         if (this.orientation === 0) {
-          this.orientation++
-          return this.shape.rotateRight()
+          const newShape = this.shape.rotateRight()
+          return new Tetromino(newShape.toString(), 'I', 1)
         } else {
-          this.orientation = 0
-          return this.shape.rotateLeft()
+          const newShape = this.shape.rotateLeft()
+          return new Tetromino(newShape.toString(), 'I', 0)
         }
     }
   }

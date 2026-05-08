@@ -1,7 +1,7 @@
 export class RotatingShape {
   shape;
   constructor(shapeStr) {
-    this.shape = shapeStr.replaceAll(" ", "").split('\n').map((line) => line.split(''))
+    this.shape = shapeStr.replaceAll(" ", "").trim().split('\n').map((line) => line.split(''))
   }
   static fromString(shapeStr) {
     return new RotatingShape(shapeStr)
