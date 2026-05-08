@@ -16,4 +16,8 @@ export class Tetromino {
   rotateRight() {
     return this.tetromino.rotateRight()
   }
+
+  rotateLeft() {
+    return this.tetromino.rotateLeft()
+  }
 };
