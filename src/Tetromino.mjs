@@ -22,12 +22,19 @@ export class Tetromino {
   rotateRight() {
     switch (this.name) {
       case 'T':
-        const newShape = this.shape.rotateRight()
-        return newShape
+        return this.shape.rotateRight()
+      case 'I':
+        if (this.orientation === 0) {
+          this.orientation++
+          return this.shape.rotateRight()
+        } else {
+          this.orientation = 0
+          return this.shape.rotateLeft()
+        }
     }
   }
 
   rotateLeft() {
-    return this.shape.rotateLeft()
+    return this.rotateRight().rotateRight().rotateRight()
   }
 };
