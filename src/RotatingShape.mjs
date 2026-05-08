@@ -18,4 +18,7 @@ export class RotatingShape {
     })
     return RotatingShape.fromString(newBoard.map((line) => line.join('')).join('\n'))
   }
+  rotateLeft() {
+    return this.rotateRight().rotateRight().rotateRight()
+  }
 }
