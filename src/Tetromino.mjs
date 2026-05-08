@@ -9,6 +9,8 @@ export class Tetromino {
 
   static T_SHAPE = new Tetromino('.T.\nTTT\n...')
 
+  static I_SHAPE = new Tetromino('.....\n.....\nIIII.\n.....\n.....')
+
   toString() {
     return this.tetromino.toString()
   }
