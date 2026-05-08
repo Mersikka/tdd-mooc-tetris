@@ -3,10 +3,12 @@ import { RotatingShape } from '../src/RotatingShape.mjs';
 export class Tetromino {
   shape;
   name;
+  orientation;
 
   constructor(shapeStr, name) {
     this.shape = RotatingShape.fromString(shapeStr)
     this.name = name
+    this.orientation = 0
   }
 
   static T_SHAPE = new Tetromino('.T.\nTTT\n...', 'T')
